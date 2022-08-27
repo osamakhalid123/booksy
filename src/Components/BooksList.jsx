@@ -1,27 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 
+import BooksContext from "../Context_Api/Context";
 import ReactPaginate from "react-paginate";
 import { Rings } from "react-loader-spinner";
-import axios from "axios";
 
 function BooksList() {
-  const [loading, setloading] = useState(true);
-  useEffect(() => {
-    const fetchBooks = async () => {
-      await axios
-        .get("https://gutendex.com/books")
-        .then((res) => {
-          let data = res.data;
-          setbooks(data.results);
-          setloading(false);
-          console.log(data.results);
-        })
-        .catch(console.error);
-    };
-    fetchBooks();
-  }, []);
+  const { books, loading } = useContext(BooksContext);
 
-  const [books, setbooks] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
   const articlePerPage = 9;
   const pagesVisited = pageNumber * articlePerPage;
