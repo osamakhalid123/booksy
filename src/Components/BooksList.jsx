@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 
 import BooksContext from "../Context_Api/Context";
+import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import { Rings } from "react-loader-spinner";
 
@@ -19,11 +20,14 @@ function BooksList() {
           key={book.id}
           className="flex flex-col justify-center mx-auto mb-3 "
         >
-          <img
-            className=" w-[250px] h-[300px] mx-auto lg:mx-0"
-            src={book.formats[`image/jpeg`]}
-            alt=""
-          />
+          <Link to={`/${book.id}`}>
+            <img
+              className=" w-[250px] h-[300px] mx-auto lg:mx-0"
+              src={book.formats[`image/jpeg`]}
+              alt=""
+            />
+          </Link>
+
           <div className="mx-5 lg:mx-0">
             <h1 className="font-bold my-3 ">{book.title}</h1>
             {book.authors.map((author) => {

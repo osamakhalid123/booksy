@@ -1,14 +1,16 @@
-import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import React from "react";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 function NavBar() {
   return (
     <div>
       <div className="flex flex-row justify-around lg:justify-between my-5 items-center">
-        <h1 className="font-bold text-3xl cursor-pointer">Booksy</h1>
+        <Link to="/">
+          <h1 className="font-bold text-3xl cursor-pointer">Booksy</h1>
+        </Link>
 
         <form className="relative ">
           <input
@@ -30,9 +32,10 @@ function NavBar() {
       </div>
       <div className="  flex justify-center my-5 items-center">
         <div>
-          {/* flex flex-row my-5 */}
           <ul className="text-[#bec0c2] flex flex-row my-5 ">
-            <li className="list">Home</li>
+            <Link to="/">
+              <li className="list">Home</li>
+            </Link>
             <li className="list">Bestseller</li>
             <li className="list">Category</li>
             <li className="list">Find a store</li>
